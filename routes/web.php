@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\C_todo;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/', C_todo::class);
+Route::delete('/todo/{td_id}',[C_todo::class,'destroy']);
+Route::put('/todo/{td_id}',[C_todo::class,'update']);
